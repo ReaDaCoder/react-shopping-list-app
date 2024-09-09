@@ -28,6 +28,13 @@ export default function HomePage(){
     </form>
   </div>
 </nav>
+<form class="form-inline">
+  <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">List I tems</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com"/>
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Add item</button>
+</form>
         </div>
     )
 }
