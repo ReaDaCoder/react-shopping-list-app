@@ -3,3 +3,5 @@ User will be propmted to enter log in details
 If the user does not have an existing account then they will be requested to create a profile
 Once the user has clicked on the "Do not have an account" link, the user will be redirected to the Registration page where they will enter their names, email, password and profile picture.
 Once the user has a profile the will be redirected to the home page where they can start using the application.
+When the user is on the home page they will see the shopping list that they created, if the user is new then there will be a create list button where they will add items to the list
+next to each item there will be options to add and remove items from the list.
