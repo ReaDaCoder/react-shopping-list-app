@@ -1,11 +1,28 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css';
+import { Table } from 'semantic-ui-react';
+
 
 export default function HomePage(){
+
+  const postData = () =>{
+    axios.post('http://localhost:3000/items', {
+      items
+  })
+}
+
+
+  const setData = (data) => {
+    localStorage.setItem('ID', id);
+  localStorage.setItem('Added Items', listItem);
+    console.log(listItem);
+}
     return(
         <div>
+          <h1>Shopping List</h1>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">Navbar</a>
+  <a className="navbar-brand" href="#">Shopping List</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -18,9 +35,6 @@ export default function HomePage(){
       <li className="nav-item">
         <a className="nav-link" href="#">Link</a>
       </li>
-      <li className="nav-item">
-        <a className="nav-link disabled" href="#">Disabled</a>
-      </li>
     </ul>
     <form className="form-inline my-2 my-lg-0">
       <input className="form-control mr-sm-2" type="search" placeholder="Search"/>
@@ -30,11 +44,31 @@ export default function HomePage(){
 </nav>
 <form class="form-inline">
   <div class="form-group mb-2">
-    <label for="staticEmail2" class="sr-only">List I tems</label>
-    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com"/>
+    <label for="staticEmail2" class="sr-only">List Items</label>
+    <input type="text"  id="staticEmail2" onChange={(e) => setListItems(e.target.value)}/>
   </div>
   <button type="submit" class="btn btn-primary mb-2">Add item</button>
 </form>
+
+<Table singleLine>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell>Items</Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                {APIData.map((data) => {
+     return (
+       <Table.Row>
+          <Table.Cell>{data.ItemsName}</Table.Cell>
+        </Table.Row>
+   )})}
+                </Table.Body>
+                <Table.Cell>
+   <Button onClick={() => onDelete(data.id)}>Delete</Button>
+</Table.Cell>
+            </Table>
         </div>
     )
 }

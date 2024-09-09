@@ -1,4 +1,6 @@
 import React from "react";
+import '../App.css';
+import { useNavigate, Link} from 'react-router-dom';
 
 export default function LoginPage(){
     return(
@@ -6,7 +8,7 @@ export default function LoginPage(){
               <div className="container text-center">
   <div className="row">
     <div className="col">
-      <img src="recipe-app-img.jpg" alt="recipe img" width="400px" height="500"/>
+      <img src="Fox Trot.jpg" alt="recipe img" width="400px" height="500"/>
     </div>
     <div className="col">
       <h1>Log in</h1>
@@ -26,7 +28,7 @@ export default function LoginPage(){
   </div>
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>
-<a href="RegistrationPage">Don't have an account : Sign Up</a>
+<Link to="RegistrationPage">Don't have an account : Sign Up</Link>
     </div>
   </div>
 </div>

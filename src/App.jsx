@@ -1,13 +1,25 @@
-import { useState } from 'react'
-import './App.css'
-import LoginPage from './pages/LoginPage'
+import { useState } from 'react';
+import './App.css';
+import LoginPage from './pages/LoginPage';
+import RegistrationPage from './pages/RegistrationPage';
+import HomePage from './pages/HomePage';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import ProtectedRoutes from '../pages/ProtectedRoutes';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <LoginPage/>
+     <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<LoginPage/>}/>
+          <Route element={<ProtectedRoutes/>}/>
+          <Route path="/RegistrationPage" element={<RegistrationPage/>} />
+          <Route element={<ProtectedRoutes/>}/>
+          <Route element={<HomePage/>} path="/HomePage"/>
+        </Routes>
+        </BrowserRouter>
     </>
   )
 }
