@@ -4,7 +4,8 @@ import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
 import HomePage from './pages/HomePage';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
-import ProtectedRoutes from '../pages/ProtectedRoutes';
+import ProtectedRoutes from "./components/ProtectedRoute";
+
 
 function App() {
   const [count, setCount] = useState(0)
