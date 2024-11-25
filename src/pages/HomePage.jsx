@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
+import "../App.css";
+//import "../App";
 
 
 function AddItem(){
@@ -67,7 +69,7 @@ function AddItem(){
     )
 }
 
-export default AddTodo
+export default AddItem
 
 
 
