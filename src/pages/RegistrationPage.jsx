@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { useNavigate, Link} from 'react-router-dom';
 
 export default function RegistrationPage(){
+  const navigate = useNavigate();
+
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -16,39 +19,25 @@ export default function RegistrationPage(){
         email,
         password,
         confirmPassword
+      }).then((res)=>{
+        alert('Registered Successfully')
+        navigate('/src/pages/HomePage');
+      }).catch((err)=>{
+        alert('Failed to register user due to :'+ err.message);
       });
+
     }
     
       const [error, setError] = useState("");
     
-      function handleInputChange(ev) {
-        const { name, value } = ev.target;
-        setUser((prevUser) => ({
-          ...prevUser,
-          [name]: value,
-        }));
-      }
+    
     
       function AddUser(ev) {
         ev.preventDefault();
         let details = {name, surname, email, password, confirmPassword};
+        console.log(details);
         postData();
       
-        // if (user.password !== user.confirmPassword) {
-        //   setError("Passwords do not match!");
-        //   return;
-        // }
-        //setError("");
-    
-        //console.log("User registered:", user);
-    
-        // setUser({
-        //   name: "",
-        //   surname: "",
-        //   email: "",
-        //   password: "",
-        //   confirmPassword: "",
-        // });
       }
     
     return(
@@ -108,3 +97,27 @@ export default function RegistrationPage(){
         </div>
     );
 }
+
+        // if (user.password !== user.confirmPassword) {
+        //   setError("Passwords do not match!");
+        //   return;
+        // }
+        //setError("");
+    
+        //console.log("User registered:", user);
+    
+        // setUser({
+        //   name: "",
+        //   surname: "",
+        //   email: "",
+        //   password: "",
+        //   confirmPassword: "",
+        // });
+
+          // function handleInputChange(ev) {
+      //   const { name, value } = ev.target;
+      //   setUser((prevUser) => ({
+      //     ...prevUser,
+      //     [name]: value,
+      //   }));
+      // }

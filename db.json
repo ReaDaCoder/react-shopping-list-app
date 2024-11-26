@@ -1,7 +1,25 @@
 {
-    "users":[
-
-    ],
-    
-    "items": [{}]
+  "users": [
+    {
+      "id": "ec1b",
+      "name": "Admin",
+      "surname": "Test",
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "34e0",
+      "name": "Admin",
+      "surname": "Makgabutla",
+      "email": "admin@gmail.com",
+      "password": "246810",
+      "confirmPassword": "246810"
+    }
+  ],
+  "items": [
+    {
+      "id": "5072"
+    }
+  ]
 }
