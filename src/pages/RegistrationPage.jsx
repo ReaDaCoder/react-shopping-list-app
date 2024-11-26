@@ -1,13 +1,23 @@
-import React from "react";
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 export default function RegistrationPage(){
-    const [user, setUser] = useState({
-        name: "",
-        surname: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+    const postData = () =>{
+      axios.post('http://localhost:3000/users', {
+        name,
+        surname,
+        email,
+        password,
+        confirmPassword
       });
+    }
     
       const [error, setError] = useState("");
     
@@ -21,26 +31,24 @@ export default function RegistrationPage(){
     
       function AddUser(ev) {
         ev.preventDefault();
-        
+        let details = {name, surname, email, password, confirmPassword};
+        postData();
       
-        if (user.password !== user.confirmPassword) {
-          setError("Passwords do not match!");
-          return;
-        }
-        
-      
-        setError("");
+        // if (user.password !== user.confirmPassword) {
+        //   setError("Passwords do not match!");
+        //   return;
+        // }
+        //setError("");
     
+        //console.log("User registered:", user);
     
-        console.log("User registered:", user);
-    
-        setUser({
-          name: "",
-          surname: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
+        // setUser({
+        //   name: "",
+        //   surname: "",
+        //   email: "",
+        //   password: "",
+        //   confirmPassword: "",
+        // });
       }
     
     return(
@@ -52,40 +60,40 @@ export default function RegistrationPage(){
           type="text"
           name="name"
           placeholder="First Name"
-          value={user.name}
-          onChange={handleInputChange}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         /><br/>
         <input
           type="text"
           name="surname"
           placeholder="Last Name"
-          value={user.surname}
-          onChange={handleInputChange}
+          value={surname}
+          onChange={(e) => setSurname(e.target.value)}
           required
         /><br/>
         <input
           type="email"
           name="email"
           placeholder="Email"
-          value={user.email}
-          onChange={handleInputChange}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         /><br/>
         <input
           type="password"
           name="password"
           placeholder="Password"
-          value={user.password}
-          onChange={handleInputChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         /><br/>
         <input
           type="password"
           name="confirmPassword"
           placeholder="Confirm Password"
-          value={user.confirmPassword}
-          onChange={handleInputChange}
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         /><br/>
         <div className="card">
