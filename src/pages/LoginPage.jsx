@@ -70,7 +70,7 @@ const [password, setPassword] = useState("");
     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
     <input value={password} type="password" className="form-control" id="inputPassword1" onChange={(e) => setPassword(e.target.value)} />
   </div>
-  <button type="submit" className="btn btn-primary" onClick={handleLogin}>Submit</button>
+  <button type="submit" className="btn btn-primary" onClick={ProceedLogin}>Submit</button>
 </form>
 <Link to="RegistrationPage">Don't have an account : Sign Up</Link>
     </div>
