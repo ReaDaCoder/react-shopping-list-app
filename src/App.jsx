@@ -5,7 +5,6 @@ import RegistrationPage from './pages/RegistrationPage';
 import HomePage from './pages/HomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from './components/ProtectedRoute';
-import Test from './pages/Test'
 
 function App() {
 
@@ -15,7 +14,6 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/RegistrationPage" element={<RegistrationPage />} />
           <Route path="/HomePage" element={<HomePage />} />
-          <Route path="/Test" element={<Test/>} />
         </Routes>
       </Router>
   

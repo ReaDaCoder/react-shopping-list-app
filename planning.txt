@@ -176,3 +176,51 @@ export default function HomePage(){
         </div>
     )
 }*/
+
+
+
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function AddItem() {
+  const [input, setInput] = useState('');
+  const [items, setItems] = useState([]);
+
+  const addItemHandler = (e) => {
+    e.preventDefault();
+    if (input.trim()) {
+      setItems([...items, { id: Date.now(), name: input }]);
+      setInput('');
+    }
+  };
+
+  const deleteItemHandler = (id) => {
+    setItems(items.filter((item) => item.id !== id));
+  };
+
+  return (
+    <div>
+      <h1>Shopping List</h1>
+      <form onSubmit={addItemHandler}>
+        <input 
+          type="text" 
+          value={input} 
+          onChange={(e) => setInput(e.target.value)} 
+          placeholder="Enter item"
+        />
+        <button type="submit">Add Item</button>
+      </form>
+
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.name}
+            <button onClick={() => deleteItemHandler(item.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default AddItem;

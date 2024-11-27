@@ -1,11 +1,11 @@
 import React from 'react';
  import { useSelector } from 'react-redux';
 
- function Todos(){
+ function ListItems(){
     const todos = useSelector((state) =>{state})
     return(
         <div className="read-container">
-            <div>Todos</div>
+            <div>Shopping List</div>
         <Table singleLine>
               <Table.Header>
                   <Table.Row>

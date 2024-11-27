@@ -23,11 +23,36 @@
       "email": "reamakgabutla@gmail.com",
       "password": "482301",
       "confirmPassword": "482301"
+    },
+    {
+      "id": "50c3",
+      "name": "Reabetswe",
+      "surname": "Makgabutla",
+      "email": "reamakgabutla@gmail.com",
+      "password": "654321",
+      "confirmPassword": "654321"
+    },
+    {
+      "id": "2c8c",
+      "name": "kea",
+      "surname": "Uzumake",
+      "email": "kea@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "cb47",
+      "name": "Naruto",
+      "surname": "Uzumake",
+      "email": "naruto@gmail.com",
+      "password": "uzumake22",
+      "confirmPassword": "uzumake22"
     }
   ],
   "items": [
     {
-      "id": "5072"
+      "id": 1732701727535,
+      "name": "Carrots"
     }
   ]
 }
