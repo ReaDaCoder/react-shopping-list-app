@@ -5,31 +5,20 @@ import RegistrationPage from './pages/RegistrationPage';
 import HomePage from './pages/HomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from './components/ProtectedRoute';
-import { Provider } from 'react-redux';
-import store from './store';
+import Test from './pages/Test'
 
 function App() {
 
   return (
-    <Provider store={store}> {/* Wrap your app with the Provider */}
       <Router>
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/RegistrationPage" element={<RegistrationPage />} />
           <Route path="/HomePage" element={<HomePage />} />
+          <Route path="/Test" element={<Test/>} />
         </Routes>
       </Router>
-    </Provider>
-    // <Router> 
-    //   <Routes>
-    //     <Route path="/" element={<LoginPage />} />
-    //     <Route path="/RegistrationPage" element={<RegistrationPage />} />
-
-    //     {/* <Route element={<ProtectedRoutes />}> */}
-    //       <Route path="/HomePage" element={<HomePage />} />
-    //     {/* </Route> */}
-    //   </Routes>
-    // </Router>
+  
   );
 }
 
