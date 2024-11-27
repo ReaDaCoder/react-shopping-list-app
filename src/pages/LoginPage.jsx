@@ -9,34 +9,37 @@ export default function LoginPage(){
   const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
-// function handleLogin(ev) {
-//   ev.preventDefault();
-// }
-
 
   const ProceedLogin = (e) => {
     e.preventDefault();
     if(validation()){
 
-      fetch("http://localhost:3000/user/"+email).then((res)=>{
-        return res.json();
+      fetch(`http://localhost:3000/users?email=${email}`).then((res)=>{
+        if (!res.ok) {
+          throw new Error('Failed to fetch');
+      }
+      return res.json();
+
       }).then((resp)=>{
         console.log(resp);
-        if(Object.keys(resp).length === 0){
+
+        if (resp.length === 0){
           alert('Please enter valid user');
-        }else{
-          if(resp.password === password){
-            navigate('/src/pages/HomePage.jsx');
-          }else{
-            alert('Please enter valid credentails');
+        }else {
+          const user = resp[0]; 
+
+          if (user.password === password) {
+              navigate('/HomePage');
+          } else {
+              alert('Please enter valid credentials');
           }
         }
       }).catch((err)=>{
         alert('Login failed due to : '+err.message);
-      })
+      });
 
     }
-  }
+  };
 
   const validation=()=>{
   let result =true;
@@ -79,3 +82,13 @@ const [password, setPassword] = useState("");
         </div>
     );
 }
+
+// "http://localhost:3000/users/"+email
+
+// else{
+//   if(resp.password === password){
+//     navigate('/src/pages/HomePage.jsx');
+//   }else{
+//     alert('Please enter valid credentails');
+//   }
+// }

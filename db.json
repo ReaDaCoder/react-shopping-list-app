@@ -15,6 +15,14 @@
       "email": "admin@gmail.com",
       "password": "246810",
       "confirmPassword": "246810"
+    },
+    {
+      "id": "4907",
+      "name": "Reabetswe",
+      "surname": "Makgabutla",
+      "email": "reamakgabutla@gmail.com",
+      "password": "482301",
+      "confirmPassword": "482301"
     }
   ],
   "items": [
